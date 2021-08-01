@@ -8,6 +8,37 @@ const app = express();
 // * The app will need routes for index and show
 // * The app will need views for index and show
 
+//Connect to our database
+
+const marsMissions = require('./models/models.js')
+
+// ROUTES
+
+// 1. Homepage route:
+app.get('/', (request, response) => {
+  response.send('this is the missions homepage')
+})
+
+// 2. Index Route 1 (show the whole JSON object)
+app.get('/marsMissions/', (req,res) =>{
+  res.send(marsMissions)
+  })
+app.get('/marsMissions/:missionIndex', (req,res)=>{
+  res.render('showIndex.ejs', {
+    allMissions:marsMissions
+  })
+})
+
+//3. Show Route
+
+
+
+
+// res.render('views/show.ejs', {
+//   oneMission:marsMissions[req.params]
+
+
+
 // INDEX Route
 // send data to 'missions/index.ejs' view
 // the view should display just the names of each mission
@@ -32,43 +63,7 @@ const port = 3000;
 // DATA - move this to a file called marsMissions.js inside of a models folder
 // remember to export (module.exports)
 // remember to require it in the server
-const marsMissions = [
-  {
-    name: "Curiosity",
-    launchDate: "26 Nov 2011",
-    operator: "NASA",
-    missionType: "Rover",
-    img: ""
-  },
-  {
-    name: "Opportunity",
-    launchDate: "8 Jul 2003",
-    operator: "NASA",
-    missionType: "Rover",
-    img: ""
-  },
-  {
-    name: "Spirit",
-    launchDate: "10 Jun 2003",
-    operator: "NASA",
-    missionType: "Rover",
-    img: ""
-  },
-  {
-    name: "Sojourner",
-    launchDate: "4 Dec 1996",
-    operator: "NASA",
-    missionType: "Rover",
-    img: ""
-  },
-  {
-    name: "Rosetta",
-    launchDate: "2 Mar 2004",
-    operator: "ESA",
-    missionType: "Gravity Assist",
-    img: ""
-  }
-];
+
 
 
 // LISTENER
