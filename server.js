@@ -1,6 +1,10 @@
 // DEPENDENCIES
 const express = require('express');
 const app = express();
+const ejs = require('ejs');
+
+// Middleware // 
+app.set('view engine', 'ejs');
 
 // run `npm install` to install dependencies in package.json
 
@@ -12,6 +16,8 @@ const app = express();
 // send data to 'missions/index.ejs' view
 // the view should display just the names of each mission
 // display the mission names as <li> in a <ul> with the class name "missions"
+
+
 
 // SHOW Route
 // send data to 'missions/show.ejs' view
@@ -69,6 +75,38 @@ const marsMissions = [
     img: ""
   }
 ];
+
+app.get("/", (req, res) => {
+  res.send("Welcome to NASA Mars Mission App")
+})
+
+ 
+
+app.get("/missions", (req, res) => {
+  res.render("index.ejs", {
+    allMarsMissions: marsMissions 
+  })
+})
+
+app.get('/missions/:missionsIndex', (req, res) => {
+  res.render('show.ejs', {
+    oneMarsMissions: marsMissions[req.params.missionsIndex]
+  })
+}) 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // LISTENER
