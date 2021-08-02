@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style2.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Here's all the missions!</h1>
+    <ul class = "missions">
+        <% for (let i = 0; i < allMissions.length; i++) { %>
+          <li>
+            <p>The mission's name was <a target = "_blank" href= "/missions/<%= i %>"><%= allMissions[i].name %></a> and it launched on <%= allMissions[i].launchDate%> and it was operated by <%= allMissions[i].operator%> and it was a <%= allMissions[i].missionType %> mission. </p>
+          </li>
+        <% } %>
+      </ul>
+</body>
+</html>

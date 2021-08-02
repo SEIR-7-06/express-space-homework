@@ -1,0 +1,35 @@
+body {
+    font-family: sans-serif;
+    background-color: lightslategray;
+    color: white;
+}
+
+h1 {
+    margin: 30px;
+    text-align: center;
+}
+
+ul {
+    list-style-position: outside;
+    list-style-type: square;
+    text-align: center;
+    margin: 30px;
+}
+
+li {
+    margin-top: 40px;
+}
+
+a:link {
+    color: white;
+}
+
+a:hover {
+    color: red;
+}
+
+a:visited {
+    color: blue;
+}
+
+

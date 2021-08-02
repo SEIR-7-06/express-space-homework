@@ -1,0 +1,25 @@
+body {
+    text-align: center;
+    font-family: sans-serif;
+    background-color: lightslategray;
+    color: white;
+}
+
+h1 {
+   margin: 30px;
+   font-size: 2rem;
+}
+main {
+    margin-top: 100px;
+}
+
+
+p {
+    margin: 30px;
+    font-size: 1.2rem;
+}
+
+.picture {
+    margin-top: 110px;
+}
+
