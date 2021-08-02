@@ -8,10 +8,10 @@
 </head>
 <body>
     <h1>Here's all the missions!</h1>
-    <ul>
+    <ul class = "missions">
         <% for (let i = 0; i < allMissions.length; i++) { %>
           <li>
-            <p>The mission's name was <%= allMissions[i].name %> and it launched on <%= allMissions[i].launchDate%> and it was operated by <%= allMissions[i].operator%> and it was a <%= allMissions[i].missionType %> mission. </p>
+            <p>The mission's name was <a target = "_blank" href= "/missions/<%= i %>"><%= allMissions[i].name %></a> and it launched on <%= allMissions[i].launchDate%> and it was operated by <%= allMissions[i].operator%> and it was a <%= allMissions[i].missionType %> mission. </p>
           </li>
         <% } %>
       </ul>

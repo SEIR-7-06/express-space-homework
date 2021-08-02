@@ -5,6 +5,7 @@ const marsMissions = require('./models/marsMissions.js');
 
 // run `npm install` to install dependencies in package.json
 app.set('view engine', 'ejs');
+app.use( express.static( "public" ) )
 
 
 // * Your mission is to complete the app
@@ -37,8 +38,8 @@ app.get('/missions/:mission', (req, res) => {
   })
 })
 
-// * Bonus/Hungry for More: User should be able to click on a mission’s name on the index page, and be taken to that mission’s show page to view the data
-// * Bonus/Hungry for More: add images to the data and have them display (google how)
+  // * Bonus/Hungry for More: User should be able to click on a mission’s name on the index page, and be taken to that mission’s show page to view the data
+  // * Bonus/Hungry for More: add images to the data and have them display (google how)
 // * Bonus/Hungry for More: add static css to style the pages (google how)
 
   // NOTES:
@@ -54,8 +55,11 @@ const port = 3000;
   // remember to require it in the server
 
 
+function handleNameClick() {
+  console.log("you clicked me")
+}
+
 // LISTENER
 app.listen(port, function() {
   console.log('Missions to Mars running on port: ', port);
 })
-
