@@ -12,9 +12,9 @@ app.use( express.static( "public" ) )
 // * The app will need routes for index and show
 // * The app will need views for index and show
 
-app.get('/', (req, res) => {
-  res.send("Welcome to the Mars Missions!")
-})
+// app.get('/', (req, res) => {
+//   res.send("Welcome to the Mars Missions!")
+// })
 
 
 // INDEX Route show all the missions
@@ -40,7 +40,7 @@ app.get('/missions/:mission', (req, res) => {
 
   // * Bonus/Hungry for More: User should be able to click on a mission’s name on the index page, and be taken to that mission’s show page to view the data
   // * Bonus/Hungry for More: add images to the data and have them display (google how)
-// * Bonus/Hungry for More: add static css to style the pages (google how)
+  // * Bonus/Hungry for More: add static css to style the pages (google how)
 
   // NOTES:
   // ejs has not been installed
