@@ -9,10 +9,10 @@
 <body>
     <h1>Index of Missions</h1>
     <ul class="missions">
-        <% for (let i=0; i<marsMissions.length; i++) { %>
+        <% for (let i=0; i < missions.length; i++) { %>
             <li>
                 <a href="/missions/<%= i %>">
-                <%= marsMissions[i].name %></a>
+                <%= missions[i].name %></a>
             </li>
         <% } %>
     </ul>

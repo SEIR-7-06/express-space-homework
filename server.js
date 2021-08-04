@@ -1,23 +1,20 @@
 // DEPENDENCIES
 const express = require('express');
 
-const marsMissions = require('/models/marsMissions.js');
-const missionsController = require('/controllers/missionsController.js')
+const marsMissions = require('./models/marsMissions');
 
 const app = express();
+app.set('view engine', 'ejs');
+app.use(express.urlencoded({ extended: false }));
 
 // * Your mission is to complete the app
 // * The app will need routes for index and show
 // * The app will need views for index and show
 
-// Middleware
-
-app.use('/missions', missionsController);
-
 
 // INDEX Route
 app.get('/', (req, res) => {
-  res.send('missions/index.ejs')
+  res.render('missions/index', {missions: marsMissions})
 });
 
 // the view should display just the names of each mission
@@ -25,7 +22,8 @@ app.get('/', (req, res) => {
 
 // SHOW Route
 app.get('/missions/:id', (req, res) => {
-  res.send('missions/show.ejs')
+  missionID = req.params.id;
+  res.render('missions/show', {mission: marsMissions[missionID]});
 });
 
 
