@@ -10,18 +10,24 @@ const app = express();
 // * The app will need routes for index and show
 // * The app will need views for index and show
 
+// Middleware
+
+app.use('/missions', missionsController);
+
+
 // INDEX Route
 app.get('/', (req, res) => {
   res.send('missions/index.ejs')
-})
+});
 
 // the view should display just the names of each mission
 
 
 // SHOW Route
-app.get('/missions/')
-// send data to 'missions/show.ejs' view
-// the view should display all the data for a single mission
+app.get('/missions/:id', (req, res) => {
+  res.send('missions/show.ejs')
+});
+
 
 // * Bonus/Hungry for More: User should be able to click on a mission’s name on the index page, and be taken to that mission’s show page to view the data
 // * Bonus/Hungry for More: add images to the data and have them display (google how)
