@@ -1,6 +1,30 @@
 // DEPENDENCIES
 const express = require('express');
 const app = express();
+const exports = require("exports");
+
+app.set("view engine", "ejs");
+
+app.get("/missions", (req, res) => {
+  res.render("index.ejs", {
+    missions:marsMissions
+  })
+})
+
+for (i = 0; i < marsMissions.length; i++) {
+  document.getElementsByClassName("missions").appendChild(marsMissions[i].name);
+}
+
+app.get("/missions/:mission", (req, res) => {
+  res.render("show.ejs", {
+    mission:marsMissions[req.params.mission]
+  })
+})
+
+let i = 0;
+let missionEl = document.createElement("ul");
+missionEl.textContent = (marsMissions[i]);
+document.querySelector("h1").appendChild(missionEl);
 
 // run `npm install` to install dependencies in package.json
 
@@ -76,4 +100,4 @@ app.listen(port, function() {
   console.log('Missions to Mars running on port: ', port);
 })
 
-module.exports = app;
+module.exports = models.marsMissions;
