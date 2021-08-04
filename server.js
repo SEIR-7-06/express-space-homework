@@ -40,6 +40,14 @@ app.get('/', (request, response) =>{
   response.send(marsMissions);
 
 })
+
+app.get('/index', (request, response) => {
+
+})
+
+app.get('/show', (request, response) => {
+  
+})
   
 
 
