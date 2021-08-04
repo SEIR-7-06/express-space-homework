@@ -1,9 +1,14 @@
 // DEPENDENCIES
 const express = require('express');
 const app = express();
+//const missionController = require('./missionController')
 
-// run `npm install` to install dependencies in package.json
+const missions = require('./models/marsMissions')
 
+
+app.set('view engine', 'ejs');
+
+//app.use('/marsMissions', missionController)
 // * Your mission is to complete the app
 // * The app will need routes for index and show
 // * The app will need views for index and show
@@ -12,7 +17,10 @@ const app = express();
 // send data to 'missions/index.ejs' view
 // the view should display just the names of each mission
 // display the mission names as <li> in a <ul> with the class name "missions"
-
+app.get('/missions/:missionIndex', (req,res) => {
+  // res.send(marsMissions)
+  res.render('index.ejs');
+})
 // SHOW Route
 // send data to 'missions/show.ejs' view
 // the view should display all the data for a single mission
@@ -21,54 +29,10 @@ const app = express();
 // * Bonus/Hungry for More: add images to the data and have them display (google how)
 // * Bonus/Hungry for More: add static css to style the pages (google how)
 
-// NOTES:
-// ejs has not been installed
-// views folder has not been created
-// views/missions folder has not been created
+
 
 // PORT
 const port = 3000;
-
-// DATA - move this to a file called marsMissions.js inside of a models folder
-// remember to export (module.exports)
-// remember to require it in the server
-const marsMissions = [
-  {
-    name: "Curiosity",
-    launchDate: "26 Nov 2011",
-    operator: "NASA",
-    missionType: "Rover",
-    img: ""
-  },
-  {
-    name: "Opportunity",
-    launchDate: "8 Jul 2003",
-    operator: "NASA",
-    missionType: "Rover",
-    img: ""
-  },
-  {
-    name: "Spirit",
-    launchDate: "10 Jun 2003",
-    operator: "NASA",
-    missionType: "Rover",
-    img: ""
-  },
-  {
-    name: "Sojourner",
-    launchDate: "4 Dec 1996",
-    operator: "NASA",
-    missionType: "Rover",
-    img: ""
-  },
-  {
-    name: "Rosetta",
-    launchDate: "2 Mar 2004",
-    operator: "ESA",
-    missionType: "Gravity Assist",
-    img: ""
-  }
-];
 
 
 // LISTENER
@@ -76,4 +40,4 @@ app.listen(port, function() {
   console.log('Missions to Mars running on port: ', port);
 })
 
-module.exports = app;
+module.exports = missions;
