@@ -7,12 +7,14 @@
     <title>Document</title>
 </head>
 <body>
-    <h1> Missions </h1>
-    <ul>
-        <% for (let i=0;i<allMissions.length;i++) {%>
-            <li><%= allMissions[i].name %> </li>
-            <% } %>
-    </ul>
+    
+    <h1>Mission Index Page</h1>
+      
+        <% for (let i = 0; i < allMissions.length; i++) { %>
+            <a href="/missions/<%=i%>">
+           <h3><%= allMissions[i].name %></h3>
+        </a>
+          
+        <% } %>
+      
 </body>
-</html>
-

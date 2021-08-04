@@ -19,11 +19,12 @@ app.get('/', (request, response) => {
   response.send('this is the missions homepage')
 })
 
-// 2. Index Route 1 (show the whole JSON object)
-app.get('/marsMissions/', (req,res) =>{
-  res.send(marsMissions)
-  })
-app.get('/marsMissions/:missionIndex', (req,res)=>{
+// //2. Index Route 1 (show the whole JSON object)
+// app.get('/marsMissions/', (req,res) =>{
+//   res.send(marsMissions)
+//   })
+
+app.get('/missions', (req,res)=>{
   res.render('showIndex.ejs', {
     allMissions:marsMissions
   })
@@ -31,7 +32,11 @@ app.get('/marsMissions/:missionIndex', (req,res)=>{
 
 //3. Show Route
 
-
+app.get('/missions/:mission', (req,res)=>{
+  res.render('showMission.ejs', {
+    oneMission: marsMissions[req.params.mission]
+  })
+})
 
 
 // res.render('views/show.ejs', {
