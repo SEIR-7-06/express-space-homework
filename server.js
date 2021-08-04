@@ -2,6 +2,18 @@
 const express = require('express');
 const app = express();
 
+////// Data
+const datab = require('./models/marsMissions.js');
+////// Route
+const marsController = require('./routes/marsController.js')
+
+////// app.use
+app.set('view engine', 'ejs');
+app.use('/mars', marsController);
+app.use(express.urlencoded({extended: false}));
+app.get('/', (req, res) => {
+  res.send('Welcome to the Robot App, type /mars after to get ot main page.');
+})
 // run `npm install` to install dependencies in package.json
 
 // * Your mission is to complete the app
@@ -32,45 +44,6 @@ const port = 3000;
 // DATA - move this to a file called marsMissions.js inside of a models folder
 // remember to export (module.exports)
 // remember to require it in the server
-const marsMissions = [
-  {
-    name: "Curiosity",
-    launchDate: "26 Nov 2011",
-    operator: "NASA",
-    missionType: "Rover",
-    img: ""
-  },
-  {
-    name: "Opportunity",
-    launchDate: "8 Jul 2003",
-    operator: "NASA",
-    missionType: "Rover",
-    img: ""
-  },
-  {
-    name: "Spirit",
-    launchDate: "10 Jun 2003",
-    operator: "NASA",
-    missionType: "Rover",
-    img: ""
-  },
-  {
-    name: "Sojourner",
-    launchDate: "4 Dec 1996",
-    operator: "NASA",
-    missionType: "Rover",
-    img: ""
-  },
-  {
-    name: "Rosetta",
-    launchDate: "2 Mar 2004",
-    operator: "ESA",
-    missionType: "Gravity Assist",
-    img: ""
-  }
-];
-
-
 // LISTENER
 app.listen(port, function() {
   console.log('Missions to Mars running on port: ', port);
