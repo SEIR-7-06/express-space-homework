@@ -1,12 +1,14 @@
 // DEPENDENCIES
 const express = require('express');
 const app = express();
-const missionController = require('./missionController')
+//const missionController = require('./missionController')
+
+const missions = require('./models/marsMissions')
 
 
 app.set('view engine', 'ejs');
 
-app.use('/views/mission', missionController)
+//app.use('/marsMissions', missionController)
 // * Your mission is to complete the app
 // * The app will need routes for index and show
 // * The app will need views for index and show
@@ -15,7 +17,7 @@ app.use('/views/mission', missionController)
 // send data to 'missions/index.ejs' view
 // the view should display just the names of each mission
 // display the mission names as <li> in a <ul> with the class name "missions"
-app.get('/', (req,res) => {
+app.get('/missions/:missionIndex', (req,res) => {
   // res.send(marsMissions)
   res.render('index.ejs');
 })
@@ -38,4 +40,4 @@ app.listen(port, function() {
   console.log('Missions to Mars running on port: ', port);
 })
 
-//module.exports = app;
+module.exports = missions;
