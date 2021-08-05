@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit a Mission</title>
+</head>
+
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/marsMissions">All Missions</a></li>
+                <li><a href="/marsMissions/new">Edit a Mission</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+
+
+    <h1>Edit the <%= oneMission.name %></h1>
+    <form action="/missions/<%= index%>?_method=PUT" method="POST">
+        <label for="name">Name:</label>
+        <input name="name" type="text" value="<%= oneMission.name %>">
+        <br>
+        <label for="color">Color:</label>
+        <input name="color" type="text" value="<%= oneMission.color %>">
+        <br>
+        <label for="readyForTakeOff">Ready To Eat?</label>
+        <input name="readyForTakeOff" type="checkbox" <%= oneMission.readyForTakeOff ? "checked" : "" %>>
+        <br>
+        <input type="submit" value="Update Mission">
+    </form>
+</body>
+</html>

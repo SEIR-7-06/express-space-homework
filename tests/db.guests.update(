@@ -1,0 +1,12 @@
+db.guests.update(
+{name: 'Emma'},
+{
+	$set: {
+		name: 'Emily',
+		age: 37
+		}
+	},
+{
+multi: true
+}
+)

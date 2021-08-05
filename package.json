@@ -24,8 +24,20 @@
   "dependencies": {
     "chai": "^4.2.0",
     "cheerio": "^1.0.0-rc.3",
+    "ejs": "^3.1.6",
     "express": "^4.17.1",
     "mocha": "^6.1.4",
     "supertest": "^4.0.2"
-  }
+  },
+  "directories": {
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jekkiboi/express-space-homework.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jekkiboi/express-space-homework/issues"
+  },
+  "homepage": "https://github.com/jekkiboi/express-space-homework#readme"
 }

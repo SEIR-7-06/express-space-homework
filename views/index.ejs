@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission Index</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="missions">
+                <li><a href="/marsMissions">All Missions</a></li>
+                <li><a href="/marsMissions/new">Create a Mission</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <h1>Here's all the Missions:</h1>
+    <% for(let i = 0; i < allMissions.length; i++) { %>
+       <a href = "/marsMissions/<%= i %>">
+        <h2><%= allMissions[i].name %></h2>
+    </a>
+<form action="/marsMissions/<%= i %> ?_method=DELETE" method="POST">
+    <input type="submit" value="Delete this mission">
+</form>
+
+<a href="/marsMissions/<%= i %>/edit">Edit this mission</a>
+    <% } %>
+
+</body>
+</html>
