@@ -24,7 +24,6 @@ app.get('/missions/', (req, res) => {
   res.render('index.ejs', {
     allMissions: missions
   })
-  
 })
 
 // app.get('/fruits/new', (req, res) => {
